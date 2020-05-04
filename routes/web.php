@@ -21,15 +21,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test', 'testController@index')->name('test');
-// Route::get('/dashboard', 'dashboard\DashboardController@index')->name('dashboard');
 
+// dashboard routes
+Route::prefix('dashboard')->group(function () {
 
 Route::group(['middleware' => 'employee'], function () {
+    Route::get('/','dashboard\DashboardController@index')->name('dashboard');
+    });
 
-    Route::prefix('dashboard')->group(function () {
-        Route::get('/','dashboard\DashboardController@index')->name('dashboard');
-
+    Route::group(['middleware' => 'admin'], function () {
+        Route::resource('users','dashboard\UserController');
+        Route::resource('groups','dashboard\GroupController');
     });
     
-    
+
     }); 
