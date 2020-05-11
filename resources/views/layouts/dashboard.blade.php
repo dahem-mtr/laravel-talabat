@@ -197,11 +197,20 @@
           </li>
           
          
+
           @if (Auth::user()->group->name == 'admins')
                        
+          <li class="nav-item">
+            <a href="{{route('companies.index')}}" class="nav-link {{ Request::is('dashboard/companies*') ? 'active' : '' }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+              companies
+              </p>
+            </a>
+          </li>
                  
-           <li class="nav-item has-treeview {{ Request::is('dashboard/groups/*') ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link  {{ Request::is('dashboard/groups/*') ? 'active' : '' }}">
+           <li class="nav-item has-treeview {{ Request::is('dashboard/groups*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link  {{ Request::is('dashboard/groups*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-tree"></i>
               <p>
                 Groups

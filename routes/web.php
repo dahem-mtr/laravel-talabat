@@ -27,11 +27,16 @@ Route::prefix('dashboard')->group(function () {
 
 Route::group(['middleware' => 'employee'], function () {
     Route::get('/','dashboard\DashboardController@index')->name('dashboard');
+   
     });
 
     Route::group(['middleware' => 'admin'], function () {
         Route::resource('users','dashboard\UserController');
         Route::resource('groups','dashboard\GroupController');
+        Route::resource('companies','dashboard\CompanyController');
+        Route::resource('menus','dashboard\MenuController');
+        Route::resource('products','dashboard\ProductController');
+        
     });
     
 
