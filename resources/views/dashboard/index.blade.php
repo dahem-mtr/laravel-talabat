@@ -1,7 +1,10 @@
 @extends('layouts.dashboard')
 @section('title','dashboard')
-@section('namePage','dashboard')
-
 @section('content')
+@component('dashboard.components.breadcrumb')
+@slot('title')
+dashboard
+@endslot
+@endcomponent
 {{Auth::user()->group->name}}
 @endsection

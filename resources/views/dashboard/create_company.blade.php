@@ -1,8 +1,15 @@
 @extends('layouts.dashboard')
 @section('title','new company')
-@section('namePage','new company')
 
 @section('content')
+
+@component('dashboard.components.breadcrumb')
+@slot('title')
+new company
+@endslot
+<li class="breadcrumb-item"><a href="{{ route('companies.index') }}">companies</a></li>
+<li class="breadcrumb-item active">new company</li>
+@endcomponent
 
 <div class="col-md-9">
             <div class="card card-secondary">

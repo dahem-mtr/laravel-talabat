@@ -1,10 +1,18 @@
 @extends('layouts.dashboard')
 @section('title','user Profile')
-@section('namePage','user Profile')
 
 @section('content')
 
 @include('dashboard.components.alert') 
+
+@component('dashboard.components.breadcrumb')
+@slot('title')
+Profile {{$user->name}}
+@endslot
+<li class="breadcrumb-item active"> <a href="{{ route('groups.show', $user->group->id) }}"> {{$user->group->name}}</a></li>
+<li class="breadcrumb-item active">  {{$user->name}}</li>
+@endcomponent
+
 
 <section class="content">
       <div class="container-fluid">

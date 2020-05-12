@@ -1,10 +1,17 @@
 @extends('layouts.dashboard')
 @section('title',$group_name)
-@section('namePage',$group_name)
 
 @section('content')
 
 @include('dashboard.components.alert') 
+
+@component('dashboard.components.breadcrumb')
+@slot('title')
+group {{$group_name}}
+@endslot
+<li class="breadcrumb-item active"> {{$group_name}}</li>
+@endcomponent
+
 
 <div class="row">
           <div class="col-12">
@@ -40,7 +47,7 @@
                       <td>
                       
                      <form action="{{route('users.destroy',$user->id)}}" method="POST">
-                      <a href="{{ route('users.show', $user->id) }}" type="button" class="btn btn-default"><i class="fas fa-info"></i></a>
+                      <a href="{{ route('users.show', $user->id) }}" type="button" class="btn btn-default"><i class="fas fa-edit"></i></a>
                       @method('DELETE')
                       @csrf
                       <button type="submit"class="btn btn-default"><i class="fas fa-trash"></i></button>               
