@@ -17,7 +17,12 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('price');
-            $table->integer('menu_id');
+            $table->bigInteger('menu_id')->unsigned()->index();
+
+
+            $table->foreign('menu_id')
+            ->references('id')->on('menus')
+            ->onDelete('cascade');
         });
     }
 
