@@ -27,6 +27,7 @@ Route::prefix('dashboard')->group(function () {
 
 Route::group(['middleware' => 'employee'], function () {
     Route::get('/','dashboard\DashboardController@index')->name('dashboard');
+    Route::resource('orders','dashboard\OrderController');
    
     });
 

@@ -195,7 +195,15 @@
               </p>
             </a>
           </li>
-          
+          <li class="nav-item">
+            <a href="{{ route('orders.index') }}" class="nav-link {{ Request::is('dashboard/orders*') ? 'active' : '' }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+              orders
+              </p>
+              <span class="right badge badge-danger">0</span>
+            </a>
+          </li>
          
 
           @if (Auth::user()->group->name == 'admins')
@@ -211,7 +219,7 @@
                  
            <li class="nav-item has-treeview {{ Request::is('dashboard/groups*') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link  {{ Request::is('dashboard/groups*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-tree"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
                 Groups
                 <i class="fas fa-angle-left right"></i>

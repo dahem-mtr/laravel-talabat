@@ -17,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::middleware('auth:api-customer')->get('/customer', function (Request $request) {
+    // return $request->customer();
+     $customer = auth('api-customer')->user();
+    return response()->json(['customer' => $customer]);
+});
+
+
+Route::post('/send-verify-code', 'Api\CustomersController@Send_verification_code');
+Route::post('/verify-code', 'Api\CustomersController@verify');
+
+
