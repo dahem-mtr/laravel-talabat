@@ -6,5 +6,5 @@
 dashboard
 @endslot
 @endcomponent
-{{Auth::user()->group->name}}
+
 @endsection
