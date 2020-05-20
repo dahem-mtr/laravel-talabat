@@ -28,4 +28,6 @@ Route::middleware('auth:api-customer')->get('/customer', function (Request $requ
 Route::post('/send-verify-code', 'Api\CustomersController@Send_verification_code');
 Route::post('/verify-code', 'Api\CustomersController@verify');
 
+Route::get('companies','api\CompanyController@index');
+
 
